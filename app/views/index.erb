@@ -1,0 +1,23 @@
+<div class="container">
+  <p> BriEntertainment </p>
+</div>
+
+
+<% @posts.each do |show_post|%>
+
+<table id="all_posts">
+<!-- Loop over this fucker -->
+  <% show_post %>
+    <tr>
+      <td class="title">
+        <a href="<%= show_post.source%>"> <%= show_post.title %> </a>
+        <!-- <span class="comhead"> (10gen.com) </span> -->
+      </td>
+    </tr>
+    <tr>
+      <td class="subtext poster deets">
+        <a href="/<% show_post.user.name %>"> <%= show_post.user.name %> </a> <%= ((Time.now - show_post.created_at)/60).to_i %> minutes  | <a href="<%= show_post.title %>"> discuss</a>
+      </td>
+    </tr>
+  <% end %>  
+</table>
